@@ -1,0 +1,40 @@
+body {
+  margin: 0px;
+  font-family: 'Titillium Web', sans-serif;
+  background-color: #f9f9fa;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.app-body-wrapper {
+  display: flex;
+  justify-content: center;
+  .app-content-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0px 15px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-gap: 20px;
+    .app-content {
+      border: 1px solid $lighterGrey;
+      background-color: $offWhite;
+      border-radius: 4px;
+      box-shadow: 0 3px 8px $shadow;
+      padding: 0px 25px;
+    }
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .app-content-wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+h1,h2,h3,h3,h4,h5,h6 {
+  color: $grey;
+  font-weight: 400;
+}
+

@@ -1,0 +1,30 @@
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding:  0px 30px;
+  border-bottom: 1px solid #E4E7EB;
+  margin-bottom: 30px;
+  background-color: $offWhite;
+
+  .left-side{
+    align-self: center;
+  }
+  
+  .right-side {
+    .nav-link-wrapper {
+      padding: 15px;
+      border-left: 1px solid $lighterGrey;
+      margin-right: 20px;
+      text-transform: uppercase;
+      a {
+        display: flex;
+        transition: 0.5s ease-in-out;
+        align-items: center;
+        text-decoration: none;
+        color: $mediumGrey;
+        font-weight: 300;
+        font-size: 0.9em;
+      }
+    }
+  }
+}

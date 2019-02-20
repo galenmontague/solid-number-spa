@@ -1,0 +1,23 @@
+.base-table-wrapper {
+  padding: 35px 20px;
+  table {
+    width: 100%;
+    border-spacing: 0px;
+    thead {
+      th {
+        border-bottom: 1px solid $lighterGrey;
+        color: $mediumGrey;
+        padding: 5px;
+        
+      }
+    }
+    tbody {
+      td {
+        border-bottom: 1px solid $lighterGrey;
+        text-align: center;
+        color: $grey;
+        padding: 5px;
+      }
+    }
+  }
+}
