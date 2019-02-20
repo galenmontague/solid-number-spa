@@ -5,7 +5,7 @@
     border-spacing: 0px;
     thead {
       th {
-        border-bottom: 1px solid $lighterGrey;
+        border-bottom: 1.5px solid $lighterGrey;
         color: $mediumGrey;
         padding: 5px;
         
@@ -16,7 +16,7 @@
         border-bottom: 1px solid $lighterGrey;
         text-align: center;
         color: $grey;
-        padding: 5px;
+        padding: 12px 6px;
       }
     }
   }
