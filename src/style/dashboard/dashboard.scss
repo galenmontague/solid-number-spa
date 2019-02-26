@@ -1,0 +1,16 @@
+.dashbord-wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 25px;
+  
+  .table-actions {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-grow: inherit;
+    align-items: center;
+    .select-wrapper {
+      min-width: 100px;
+    }
+  }
+}

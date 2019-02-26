@@ -13,6 +13,9 @@ const NavigationComponent = props => {
         <div className="nav-link-wrapper">
           <NavLink to='/dashboard' activeClassName='nav-link-active'> Dashboard</NavLink>
         </div>
+        <div className="nav-link-wrapper">
+          <NavLink to='/settings' activeClassName='nav-link-active'> Settings</NavLink>
+        </div>
       </div>
     </div>
   )

@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router'
 import { NavLink} from 'react-router-dom'
+// icons
 import bank from '../../../static/assets/bank.svg'
 import card from '../../../static/assets/new.svg'
 import menu from '../../../static/assets/menu.svg'
@@ -8,6 +9,8 @@ import sales from '../../../static/assets/sales.svg'
 import pay from '../../../static/assets/online-pay.svg'
 import gear from '../../../static/assets/gear.svg'
 import team from '../../../static/assets/team.svg'
+
+
 const SideNavigationComponent = props => {
   return (
     <div className="side-nav-wrapper">

@@ -11,12 +11,13 @@
   }
   
   .right-side {
+    display: flex;
+    justify-content: flex-end;
     .nav-link-wrapper {
-      padding: 15px;
       border-left: 1px solid $lighterGrey;
-      margin-right: 20px;
       text-transform: uppercase;
       a {
+        padding: 20px 15px;
         display: flex;
         transition: 0.5s ease-in-out;
         align-items: center;

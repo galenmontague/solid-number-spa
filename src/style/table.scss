@@ -1,11 +1,14 @@
 .base-table-wrapper {
-  padding: 35px 20px;
   table {
-    width: 100%;
     border-spacing: 0px;
+    overflow: hidden;
+    overflow-x: scroll;
+    width: 100%;
+    min-width: 900px;
     thead {
       th {
-        border-bottom: 1.5px solid $lighterGrey;
+        font-weight: 400;
+        border-bottom: 2.5px solid $lighterGrey;
         color: $mediumGrey;
         padding: 5px;
         
