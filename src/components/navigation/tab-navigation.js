@@ -1,25 +1,19 @@
 import React from 'react';
 
 const TabNavigation = props => {
+  
+  const renderTabs = props.tabs.map(tab => {
+    return (
+      <li className=""><a>{ tab.name }</a></li>
+      )
+    })
+
+  
   return (
     <div className="tab-navigation-wrapper">
       <div className="tab-navigation-items">
         <ul>
-          <li className="active">
-          <a>Employees</a>
-          </li>
-          <li>
-          <a>Vendors</a>
-          </li>
-          <li>
-          <a>Transactions</a> 
-          </li>
-          <li>
-          <a>Payout</a>  
-          </li>
-          <li>
-          <a>Enrollment</a>
-          </li>
+          { renderTabs }
         </ul>
       </div>
     </div>

@@ -1,32 +1,26 @@
-
-.tab-navigation-wrapper {
-  height: 50px;
-  .tab-navigation-items {
-    ul {
-      list-style: none;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      li {
-        a {
+.react-tabs {
+  .react-tabs__tab-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    .react-tabs__tab {
           transition: 0.5s ease-in-out;
           cursor: pointer;
           color: $mediumGrey;
           font-weight: 300;
           padding: 20px 15px;
-          border-bottom: solid 1.4px $mediumGrey;
-          
+          border-bottom: solid 2px transparent;
           &:hover {
             background-color:rgba(237, 244, 245, 0.947);
           }
-        }
       }
-      .active {
-        a {
-          border-bottom: solid 1.8px $blue;
+      .react-tabs__tab--selected {
+          border-left: 0px;
+          border-right: 0px;
+          border-top: 0px;
+          border-bottom: solid 2px $blue;
           color: $blue;
-        }
       }
     }
-  }
 }

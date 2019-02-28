@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router'
-import { NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import logo from '../../../static/assets/solidnumber.png'
 
 const NavigationComponent = props => {
