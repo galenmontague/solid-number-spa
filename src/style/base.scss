@@ -31,11 +31,11 @@ a {
   .app-content-wrapper {
     max-width: 1200px;
     width: 100%;
-    margin: 0px 15px;
     display: grid;
     grid-template-columns: 200px 1fr;
     grid-gap: 25px;
     .app-content {
+      max-width: 975px;
       border: 1px solid $lighterGrey;
       background-color: $offWhite;
       border-radius: 4px;
