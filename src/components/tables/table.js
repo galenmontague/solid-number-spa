@@ -1,13 +1,53 @@
 import React, { Component } from 'react';
+import Select from 'react-select';
 import dots from '../../../static/assets/dots.svg'
+
+const options = [
+  { value: 'active', label: 'Active Users' },
+  { value: 'inActive', label: 'In-Active Users' },
+  { value: 'sales', label: 'Sales' },
+  { value: 'csr', label: 'Csr' },
+  { value: 'accounting', label: 'Accounting' }
+];
+
 
 export default class Table extends Component {
   constructor (props) {
     super(props);
+    
+    this.state = {
+      selectedOption: null,
+      tabs: [
+        { name: 'Employees' },
+        { name: 'Transactions' },
+        { name: 'Payouts' }
+      ]
+    }
   }
+  
+  handleChange = (selectedOption) => {
+    this.setState({ selectedOption });
+    console.log(`Option selected:`, selectedOption);
+  }
+  
   render() {
+    const { selectedOption } = this.state;
+
     return (
       <div className="base-table-wrapper">
+        <div className="table-actions">
+            <div>
+              <h1>{this.props.tableName}</h1>
+            </div>
+            <div className="select-wrapper">
+              <Select 
+                value={selectedOption} 
+                onChange={this.handleChange}
+                placeholder="Filter"
+                options={options}
+                isMulti={true}/>
+            </div>
+          </div>
         <table className="table">
           <thead className='table-head'>
           <tr className='table-row'>  

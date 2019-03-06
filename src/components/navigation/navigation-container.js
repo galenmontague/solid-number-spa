@@ -1,14 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router'
 import { NavLink } from 'react-router-dom'
-import logo from '../../../static/assets/winknaturals.png'
+import logo from '../../../static/assets/solidnumber.png'
 
 const NavigationComponent = props => {
   return (
     <div className="nav-width">
       <div className="nav-wrapper">
         <div className="left-side">
-          <img src={ logo } height="75"/>
+          <img src={ logo } height="25" />
         </div>
         <div className="right-side">
           <div className="nav-link-wrapper">
