@@ -1,3 +1,5 @@
+@import './css/normalize.css';
+
 @import 'vars.scss';
 
 // mixins
@@ -20,5 +22,5 @@
 // pages
 @import './dashboard/dashboard.scss';
 @import './reports/reports.scss';
-@import './auth/login.scss';
+@import './auth/auth.scss';
 

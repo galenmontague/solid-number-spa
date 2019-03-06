@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import logo from '../../../static/assets/solidnumber.png'
+
 
 export default class Login extends Component {
   constructor(props){
     super(props);
 
     this.state = {
+      currentYear: new Date().getFullYear(), 
       email: '',
       password: ''
     };
@@ -46,36 +49,43 @@ export default class Login extends Component {
     //   console.log(err)
     // });
     // event.preventDefault();
+    {/* <div> { this.state.errorText } </div> */}
   }
 
   render() {
     return (
- <div>
-        <h1>LOGIN TO ACCESS YOUR DASHBOARD</h1>
-
-        {/* <div> { this.state.errorText } </div> */}
-
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="email"
-            name="email"
-            placeholder="Your email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-
-          <input
-            type="password"
-            name="password"
-            placeholder="Your password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-
-          <div>
-            <button type="submit">Login</button>
+      <div>
+        <div className="login-form">
+          <div className="image-wrapper">
+            <img src={logo} height="50"/>
           </div>
-        </form>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              className="base-input"
+              type="email"
+              name="email"
+              placeholder="Your email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+
+            <input
+              className="base-input"
+              type="password"
+              name="password"
+              placeholder="Your password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+
+            <div>
+              <button type="submit">Login</button>
+            </div>
+          </form>
+        </div>
+        <div className="copy-wrapper">
+          &copy; { this.state.currentYear } <a href="https://solidnumber.com">SolidNumber</a>
+        </div>
       </div>
     );
   }
