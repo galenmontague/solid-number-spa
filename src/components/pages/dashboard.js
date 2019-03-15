@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Table from '../tables/table.js';
-// import TabNavigation from '../navigation/tab-navigation.js';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.scss';
 

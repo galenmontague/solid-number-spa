@@ -1,0 +1,32 @@
+.admin-wrapper { 
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 25px;
+  
+  .tab-action-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    .upload-button{
+      
+    }
+  }
+  .csv-reader-input {
+    margin: 0px;
+    padding: 0px;
+    input {
+      display: none;
+    }
+    label {
+      cursor: pointer;
+      background-color: $blue;
+      color: $offWhite;
+      padding: 0.8rem 1.0rem;
+      &:hover {
+        background-color: darken($blue, 5%)
+      }
+    }
+
+  }
+}

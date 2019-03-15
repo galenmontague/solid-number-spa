@@ -8,7 +8,7 @@ const NavigationComponent = props => {
     <div className="nav-width">
       <div className="nav-wrapper">
         <div className="left-side">
-          <img src={ logo } />
+          <img src={ logo }  height="35"/>
         </div>
         <div className="right-side">
           <div className="nav-link-wrapper">

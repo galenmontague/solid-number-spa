@@ -33,7 +33,7 @@ const SideNavigationComponent = props => {
       </div>
       <div className="nav-link-wrapper">
       
-      <NavLink to='/admin' activeClassName='nav-link-active'><img src={team} height="20"/> Admin </NavLink>
+      <NavLink to='/admin' activeClassName='nav-link-active'><img src={team} height="20"/> Users </NavLink>
       </div>
       <div className="nav-link-wrapper">
       
