@@ -1,26 +1,32 @@
-import React from 'react';
-import { withRouter } from 'react-router'
-import { NavLink } from 'react-router-dom'
-import logo from '../../../static/assets/solidnumber.png'
+import React from "react";
+import { withRouter } from "react-router";
+import { NavLink } from "react-router-dom";
+import logo from "../../../static/assets/solidnumber.png";
 
 const NavigationComponent = props => {
   return (
     <div className="nav-width">
       <div className="nav-wrapper">
         <div className="left-side">
-          <img src={ logo }  height="35"/>
+          <img src={logo} height="35" />
         </div>
         <div className="right-side">
           <div className="nav-link-wrapper">
-            <NavLink to='/dashboard' activeClassName='nav-link-active'> Dashboard</NavLink>
+            <NavLink to="/" activeClassName="nav-link-active">
+              {" "}
+              Dashboard
+            </NavLink>
           </div>
           <div className="nav-link-wrapper">
-            <NavLink to='/settings' activeClassName='nav-link-active'> Settings</NavLink>
+            <NavLink to="/settings" activeClassName="nav-link-active">
+              {" "}
+              Settings
+            </NavLink>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default withRouter(NavigationComponent);

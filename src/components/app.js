@@ -1,28 +1,27 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "antd/dist/antd.css";
 
 // layouts
 // import LoginContainer from 'auth/login-container.js'
-import NavigationContainer from './navigation/navigation-container.js';
-import SideNavigationContainer from './navigation/side-navigation-container.js';
+import NavigationContainer from "./navigation/navigation-container.js";
+import SideNavigationContainer from "./navigation/side-navigation-container.js";
 
 // pages
-import Dashboard from './pages/dashboard.js';
-import Banking from './pages/banking.js';
-import Payments from './pages/payments.js';
-import Admin from './pages/admin.js';
-import Auth from './pages/auth.js';
-import Reports from './pages/reporting.js';
-import Settings from './pages/settings.js';
-import NoMatch from './pages/no-match.js';
-
-
+import Dashboard from "./pages/dashboard.js";
+import Banking from "./pages/banking.js";
+import Payments from "./pages/payments.js";
+import Admin from "./pages/admin.js";
+import Auth from "./pages/auth.js";
+import Register from "./pages/registration.js";
+import Reports from "./pages/reporting.js";
+import Settings from "./pages/settings.js";
+import NoMatch from "./pages/no-match.js";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       loggedInStatus: "LOGGED_IN"
     };
@@ -31,14 +30,14 @@ export default class App extends Component {
     this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
     this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this);
   }
-  
-  handleSuccessfulLogin () {
+
+  handleSuccessfulLogin() {
     this.setState({
       loggedInStatus: "LOGGED_IN"
     });
   }
 
-  handleUnsuccessfulLogin () {
+  handleUnsuccessfulLogin() {
     this.setState({
       loggedInStatus: "NOT_LOGGED_IN"
     });
@@ -49,54 +48,52 @@ export default class App extends Component {
       loggedInStatus: "NOT_LOGGED_IN"
     });
   }
-  
+
   authorizedPages() {
     return [
-      <Route key="dashboard" exact path="/dashboard" component={Dashboard} />,
-      <Route key="banking"  path="/banking" component={Banking} />,
-      <Route key="payments" path="/payments" component={Payments} />,
-      <Route key="admin" path="/admin" component={Admin} />,
-      <Route key="reporting" path="/reporting" component={Reports} />,
-      <Route key="settings" path="/settings" component={Settings} />,
-      <Route key="no-match" component={NoMatch} />
-  ];
+      <Route key="dashboard" exact path="/" component={Dashboard} />,
+      <Route key="banking" exact path="/banking" component={Banking} />,
+      <Route key="payments" exact path="/payments" component={Payments} />,
+      <Route key="admin" exact path="/admin" component={Admin} />,
+      <Route key="reporting" exact path="/reporting" component={Reports} />,
+      <Route key="settings" exact path="/settings" component={Settings} />,
+      <Route key="no-match" exact component={NoMatch} />,
+      <Route key="auth" path="/auth" exact component={Auth} />,
+      <Route key="register" path="/register" exact component={Register} />
+    ];
   }
-  
+
   unAuthorizedPages() {
     return [
-      <Route exact key="auth"  path="/auth" component={Auth} />
-  ];
+      <Route exact key="auth" path="/auth" component={Auth} />,
+      <Route exact key="register" path="/register" component={Register} />
+    ];
   }
-  
-  
+
   render() {
     return (
-      <div className='container'>
-          { this.state.loggedInStatus === 'LOGGED_IN' ? 
-        <Router>
-          <div>
-            <NavigationContainer/>
-              <div className='app-body-wrapper'>
-                <div className='app-content-wrapper'>
-                  <SideNavigationContainer/>
-                    <div className="app-content">
-                      <Switch>
-                      { this.authorizedPages() }
-                    </Switch>
+      <div className="container">
+        {this.state.loggedInStatus === "LOGGED_IN" ? (
+          <Router>
+            <div>
+              <NavigationContainer />
+              <div className="app-body-wrapper">
+                <div className="app-content-wrapper">
+                  <SideNavigationContainer />
+                  <div className="app-content">
+                    <Switch>{this.authorizedPages()}</Switch>
                   </div>
                 </div>
               </div>
-            </div> 
-          </Router>
-           :  
-           <Router>
-            <div>
-              <Switch>
-                { this.unAuthorizedPages() }
-              </Switch>
             </div>
-          </Router> 
-        }
+          </Router>
+        ) : (
+          <Router>
+            <div>
+              <Switch>{this.unAuthorizedPages()}</Switch>
+            </div>
+          </Router>
+        )}
       </div>
     );
   }

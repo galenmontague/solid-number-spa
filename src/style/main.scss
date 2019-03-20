@@ -1,19 +1,14 @@
 @import 'vars.scss';
 
-// mixins
-@import 'mixins.scss';
 
 // global styles
 @import 'base.scss';
 
 // custom inputs
-@import 'checkbox.scss';
-@import 'select.scss';
 
 // navigation
 @import 'navigation.scss';
 @import 'side-navigation.scss';
-@import 'tab-navigation.scss';
 @import 'table.scss';
 
 
@@ -21,5 +16,6 @@
 @import './dashboard/dashboard.scss';
 @import './reports/reports.scss';
 @import './auth/auth.scss';
+@import './auth/registration.scss';
 @import './admin/admin.scss';
 

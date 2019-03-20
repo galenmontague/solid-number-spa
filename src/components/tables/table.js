@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Select from 'react-select';
+import { Pagination } from 'antd';
 import dots from '../../../static/assets/dots.svg'
 
 const options = [
@@ -70,6 +70,7 @@ export default class Table extends Component {
           </tr>
           </tbody>
         </table>
+        <Pagination defaultCurrent={1} total={50} />
       </div>
     )
   }
