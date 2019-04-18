@@ -1,8 +1,9 @@
 .side-nav-wrapper {
+  margin: 0px 20px;
   background-color: $offWhite;
   border: solid 1px $lighterGrey;
   border-radius: 4px;
-  max-height: 366px;
+  max-height: 370px;
   box-shadow: 0 3px 8px rgba(0,0,50,.15);
   
   .nav-link-wrapper {
@@ -38,10 +39,15 @@
   }
   
   @media only screen and (max-width: 800px) {
-    .nav-link-wrapper {
-      a {
-        display: none;
-      }
+    .side-nav-wrapper  {
+      padding:20px;
+      max-width: 200px;
     }
-  }
+      .nav-link-wrapper {
+        display: inline-flex;
+        a {
+          width: auto;
+        }
+      }
+    } 
 }

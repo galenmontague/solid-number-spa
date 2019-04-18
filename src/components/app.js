@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Row, Col } from "antd";
 import "antd/dist/antd.css";
 
 // layouts
 // import LoginContainer from 'auth/login-container.js'
 import NavigationContainer from "./navigation/navigation-container.js";
 import SideNavigationContainer from "./navigation/side-navigation-container.js";
+
+// Http
+import axios from "axios";
 
 // pages
 import Dashboard from "./pages/dashboard.js";
@@ -23,7 +27,7 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      loggedInStatus: "LOGGED_IN"
+      loggedInStatus: "NOT_LOGGED_IN"
     };
 
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
@@ -49,6 +53,33 @@ export default class App extends Component {
     });
   }
 
+  checkLoginStatus() {
+    return axios
+      .get("https://api.solidnumber.com/api/v1/member/get/", {
+        params: {
+          _key: localStorage.getItem("KEY")
+        }
+      })
+      .then(res => {
+        console.log(res);
+        if (res.status === 200) this.setState({ loggedInStatus: "LOGGED_IN" });
+        // if (loggedIn && loggedInStatus === "LOGGED_IN") {
+        //   return loggedIn;
+        // } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
+        //   this.setState({ loggedInStatus: "LOGGED_IN" });
+        // } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
+        //   this.setState({ loggedInStatus: "NOT_LOGGED_IN" });
+        // }
+      })
+      .catch(err => {
+        console.log(`ERROR:: ${err}`);
+      });
+  }
+
+  componentDidMount() {
+    this.checkLoginStatus();
+  }
+
   authorizedPages() {
     return [
       <Route key="dashboard" exact path="/" component={Dashboard} />,
@@ -57,15 +88,23 @@ export default class App extends Component {
       <Route key="admin" exact path="/admin" component={Admin} />,
       <Route key="reporting" exact path="/reporting" component={Reports} />,
       <Route key="settings" exact path="/settings" component={Settings} />,
-      <Route key="no-match" exact component={NoMatch} />,
-      <Route key="auth" path="/auth" exact component={Auth} />,
-      <Route key="register" path="/register" exact component={Register} />
+      <Route key="no-match" exact component={NoMatch} />
     ];
   }
 
   unAuthorizedPages() {
     return [
-      <Route exact key="auth" path="/auth" component={Auth} />,
+      <Route
+        key="auth"
+        path="/"
+        render={props => (
+          <Auth
+            {...props}
+            handleSuccessfulLogin={this.handleUnsuccessfulLogin}
+            handleUnsuccessfulLogin={this.handleSuccessfulLogin}
+          />
+        )}
+      />,
       <Route exact key="register" path="/register" component={Register} />
     ];
   }

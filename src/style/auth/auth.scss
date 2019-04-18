@@ -31,21 +31,7 @@
     form {
       display: grid;
       grid-template-columns: 1fr;
-      grid-gap: 20px;
-      button {
-        cursor: pointer;
-        font-size: 1em;
-        width: 100%;
-        border-radius: 6px;
-        transition: 0.5s ease-in-out;
-        border: 1px solid $lighterGrey;
-        padding: 0.8rem 1.0rem;
-        &:hover {
-          box-shadow: 0 3px 8px rgba(0,0,50,.15);
-          background-color: $blue;
-          color: $offWhite;
-        }
-      }
+      grid-gap: 10px;
     }
   }
   .copy-wrapper {

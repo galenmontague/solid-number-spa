@@ -13,23 +13,6 @@ h1,h2,h3,h3,h4,h5,h6 {
   font-weight: 400;
 }
 
-input[type=text],
-input[type=email],
-input[type=number],
-input[type=password] {
-  background-color: white !important;
-  border: solid 1px $lighterGrey;
-  transition: 0.5s ease-in-out;
-  padding: 0.8rem 0.5rem;
-  border-radius: 6px;
-  font-size: 1em;
-  &:focus {
-    background-color: $offWhite;
-    border: solid 1px $blue;
-    outline: none;
-  }
-}
-
 a {
   color: $blue;
   text-decoration: none;
@@ -42,10 +25,10 @@ a {
 .shadow {
   box-shadow: 0 3px 8px $shadow;
 }
-.container {
-  display: grid;
-  grid-template-columns: 1fr;
-}
+// .container {
+//   display: grid;
+//   grid-template-columns: 1fr;
+// }
 .app-body-wrapper {
   display: flex;
   justify-content: center;
@@ -53,8 +36,7 @@ a {
     max-width: 1200px;
     width: 100%;
     display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-gap: 25px;
+    grid-template-columns: 1fr 5fr;
     .app-content {
       max-width: 975px;
       border: 1px solid $lighterGrey;
@@ -62,6 +44,7 @@ a {
       border-radius: 4px;
       box-shadow: 0 3px 8px $shadow;
       padding: 50px;
+      margin: 0px 20px;
     }
   }
   
@@ -75,11 +58,11 @@ a {
     margin-bottom: 15px;
   }
   .modal-wrapper{
-  div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 15px;
-  }
+    div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 15px;
+    }
   }
   .switch {
     max-width: 30px;
@@ -114,7 +97,16 @@ a {
   
   @media only screen and (max-width: 800px) {
     .app-content-wrapper {
+      display: block;
+    }
+    
+    .table-controls-wrapper {
+      display: grid;
       grid-template-columns: 1fr;
+    }
+
+    .side-nav-wrapper, .app-content {
+      margin: 10px 20px;
     }
   }
 }
