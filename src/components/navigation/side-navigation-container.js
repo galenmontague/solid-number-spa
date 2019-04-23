@@ -9,7 +9,7 @@ const SideNavigationComponent = props => {
     <div className="side-nav-wrapper">
       <div className="nav-link-wrapper-header" />
       <div className="nav-link-wrapper">
-        <NavLink to="/dash" activeClassName="nav-link-active">
+        <NavLink to="/" activeClassName="nav-link-active">
           <Icon type="dashboard" theme="twoTone" />
           <span>Dashboard</span>
         </NavLink>

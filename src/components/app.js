@@ -27,7 +27,7 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      loggedInStatus: "NOT_LOGGED_IN"
+      loggedInStatus: "LOGGED_IN"
     };
 
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
@@ -83,32 +83,32 @@ export default class App extends Component {
 
   authorizedPages() {
     return [
-      <Route key="dashboard" path="/dash" component={Dashboard} />,
-      <Route key="banking" path="/banking" component={Banking} />,
-      <Route key="payments" path="/payments" component={Payments} />,
-      <Route key="admin" path="/admin" component={Admin} />,
-      <Route key="reporting" path="/reporting" component={Reports} />,
-      <Route key="settings" path="/settings" component={Settings} />,
-      <Route key="no-match" component={NoMatch} />
+      <Route key="dashboard" exact path="/" component={Dashboard} />,
+      <Route key="banking" exact path="/banking" component={Banking} />,
+      <Route key="payments" exact path="/payments" component={Payments} />,
+      <Route key="admin" exact path="/admin" component={Admin} />,
+      <Route key="reporting" exact path="/reporting" component={Reports} />,
+      <Route key="settings" exact path="/settings" component={Settings} />,
+      <Route key="no-match" exact component={NoMatch} />
     ];
   }
 
-  unAuthorizedPages() {
-    return [
-      <Route
-        key="auth"
-        path="/auth"
-        render={props => (
-          <Auth
-            {...props}
-            handleSuccessfulLogin={this.handleUnsuccessfulLogin}
-            handleUnsuccessfulLogin={this.handleSuccessfulLogin}
-          />
-        )}
-      />,
-      <Route exact key="register" path="/register" component={Register} />
-    ];
-  }
+  // unAuthorizedPages() {
+  //   return [
+  //     <Route
+  //       key="auth"
+  //       path="/auth"
+  //       render={props => (
+  //         <Auth
+  //           {...props}
+  //           handleSuccessfulLogin={this.handleUnsuccessfulLogin}
+  //           handleUnsuccessfulLogin={this.handleSuccessfulLogin}
+  //         />
+  //       )}
+  //     />,
+  //     <Route exact key="register" path="/register" component={Register} />
+  //   ];
+  // }
 
   render() {
     return (
