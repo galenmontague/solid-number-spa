@@ -9,7 +9,7 @@ const SideNavigationComponent = props => {
     <div className="side-nav-wrapper">
       <div className="nav-link-wrapper-header" />
       <div className="nav-link-wrapper">
-        <NavLink to="/" activeClassName="nav-link-active">
+        <NavLink to="/dash" activeClassName="nav-link-active">
           <Icon type="dashboard" theme="twoTone" />
           <span>Dashboard</span>
         </NavLink>
@@ -23,13 +23,13 @@ const SideNavigationComponent = props => {
       <div className="nav-link-wrapper">
         <NavLink to="/payments" activeClassName="nav-link-active">
           <Icon type="wallet" theme="twoTone" />
-          <span>Wallet</span>
+          <span>Transactions</span>
         </NavLink>
       </div>
       <div className="nav-link-wrapper">
         <NavLink to="/admin" activeClassName="nav-link-active">
           <Icon type="contacts" theme="twoTone" />
-          <span>Admin</span>
+          <span>Users</span>
         </NavLink>
       </div>
       <div className="nav-link-wrapper">

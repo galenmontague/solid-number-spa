@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Axios from "axios";
+import axios from "axios";
 import logo from "../../../static/assets/solidnumber.png";
 
 import { Form, Icon, Input, Button, message } from "antd";
@@ -28,27 +28,20 @@ export default class Login extends Component {
 
   handleSubmit(event) {
     console.log("asdf");
-    Axios.post("https://api.solidnumber.com/api/v1/member/login", {
-      headers: { "content-type": "application/json" },
-      params: {
+    axios
+      .post("https://api.solidnumber.com/api/v1/member/login", {
         email: this.state.email,
         password: this.state.password
-      }
-    })
+      })
       .then(res => {
-        console.log(res);
-        localStorage.setItem("KEY", res.key);
-        if (res.status === "OK") {
-          // this.props.handleSuccessfulAuth();
+        console.log(res.status);
+        if (res.status === 200) {
+          localStorage.setItem("SOLID_AUTH_KEY", res.data.key);
+          this.props.handleSuccessfulAuth();
         } else {
-          // this.props.handleUnsuccessfulAuth();
+          this.props.handleUnsuccessfulAuth();
           message.error(`Wrong Email or Password`);
         }
-      })
-      .catch(err => {
-        message.error(`An Error has occcured`);
-        // this.props.handleUnsuccessfulAuth();
-        console.log(err);
       });
     event.preventDefault();
   }

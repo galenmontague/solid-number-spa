@@ -36,6 +36,7 @@ export default class App extends Component {
   }
 
   handleSuccessfulLogin() {
+    console.log("here");
     this.setState({
       loggedInStatus: "LOGGED_IN"
     });
@@ -57,7 +58,7 @@ export default class App extends Component {
     return axios
       .get("https://api.solidnumber.com/api/v1/member/get/", {
         params: {
-          _key: localStorage.getItem("KEY")
+          _key: localStorage.getItem("SOLID_AUTH_KEY")
         }
       })
       .then(res => {
@@ -82,13 +83,13 @@ export default class App extends Component {
 
   authorizedPages() {
     return [
-      <Route key="dashboard" exact path="/" component={Dashboard} />,
-      <Route key="banking" exact path="/banking" component={Banking} />,
-      <Route key="payments" exact path="/payments" component={Payments} />,
-      <Route key="admin" exact path="/admin" component={Admin} />,
-      <Route key="reporting" exact path="/reporting" component={Reports} />,
-      <Route key="settings" exact path="/settings" component={Settings} />,
-      <Route key="no-match" exact component={NoMatch} />
+      <Route key="dashboard" path="/dash" component={Dashboard} />,
+      <Route key="banking" path="/banking" component={Banking} />,
+      <Route key="payments" path="/payments" component={Payments} />,
+      <Route key="admin" path="/admin" component={Admin} />,
+      <Route key="reporting" path="/reporting" component={Reports} />,
+      <Route key="settings" path="/settings" component={Settings} />,
+      <Route key="no-match" component={NoMatch} />
     ];
   }
 
@@ -96,7 +97,7 @@ export default class App extends Component {
     return [
       <Route
         key="auth"
-        path="/"
+        path="/auth"
         render={props => (
           <Auth
             {...props}
@@ -115,7 +116,7 @@ export default class App extends Component {
         {this.state.loggedInStatus === "LOGGED_IN" ? (
           <Router>
             <div>
-              <NavigationContainer />
+              <NavigationContainer logout={this.handleSuccessfulLogout} />
               <div className="app-body-wrapper">
                 <div className="app-content-wrapper">
                   <SideNavigationContainer />

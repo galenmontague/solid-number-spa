@@ -13,24 +13,20 @@ export default class Dashboard extends Component {
   render() {
     return (
       <div>
-        <Row gutter={16}>
-          <Col span={6} style={{ textAlign: "center" }}>
-            <Statistic title="Primary Balance" value={19572.25} />
-          </Col>
-          <Col span={6} style={{ textAlign: "center" }}>
-            <Statistic
-              title="Reserve Balance (USD)"
-              value={7500.0}
-              precision={2}
-            />
-          </Col>
-          <Col span={6} style={{ textAlign: "center" }}>
-            <Statistic title="Max Limit Total" value={37500.0} precision={2} />
-          </Col>
-          <Col span={6} style={{ textAlign: "center" }}>
-            <Statistic title="Live Paycheck" value={18750.0} precision={2} />
-          </Col>
-        </Row>
+        <Card style={{ textAlign: "center", width: "100%" }}>
+          <Row gutter={16}>
+            <Col span={12} style={{ textAlign: "center" }}>
+              <Statistic title="Account Balance" value={"$0.00"} />
+            </Col>
+            <Col span={12} style={{ textAlign: "center" }}>
+              <Statistic
+                title="Reserve Balance (USD)"
+                value={"$0.00"}
+                precision={2}
+              />
+            </Col>
+          </Row>
+        </Card>
 
         <div className="dashboard-wrapper-x" style={{ marginTop: "20px" }}>
           <Card style={{ textAlign: "center", width: "100%" }}>

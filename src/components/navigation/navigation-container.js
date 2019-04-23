@@ -37,7 +37,9 @@ const NavigationComponent = props => {
         <SubMenu key="sub1" title="Settings" style={{ border: "none" }}>
           <MenuItemGroup>
             <Menu.Item key="1">Profile</Menu.Item>
-            <Menu.Item key="2">Logout</Menu.Item>
+            <Menu.Item key="2" onClick={props.logout}>
+              Logout
+            </Menu.Item>
           </MenuItemGroup>
         </SubMenu>
       </Menu>

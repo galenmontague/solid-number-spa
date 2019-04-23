@@ -6,26 +6,27 @@ export default class Auth extends Component {
   constructor(props) {
     super(props);
 
-    // this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
-    // this.handleUnsuccessfulAuth = this.handleUnsuccessfulAuth.bind(this);
+    this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
+    this.handleUnsuccessfulAuth = this.handleUnsuccessfulAuth.bind(this);
   }
 
-  // handleSuccessfulAuth() {
-  //   this.props.handleSuccessfulLogin();
-  //   this.props.history.push("/");
-  // }
+  handleSuccessfulAuth() {
+    this.props.handleSuccessfulLogin();
+    this.props.history.push("/");
+    console.log("hello auth");
+  }
 
-  // handleUnsuccessfulAuth() {
-  //   this.props.handleUnsuccessfulLogin();
-  // }
+  handleUnsuccessfulAuth() {
+    this.props.handleUnsuccessfulLogin();
+  }
 
   render() {
     return (
       <div className="auth-page-wrapper">
         <div className="column">
           <Login
-          // handleSuccessfulAuth={this.handleSuccessfulAuth}
-          // handleUnsuccessfulAuth={this.handleUnsuccessfulAuth}
+            handleSuccessfulAuth={this.handleSuccessfulAuth}
+            handleUnsuccessfulAuth={this.handleUnsuccessfulAuth}
           />
         </div>
       </div>

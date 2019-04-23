@@ -25,11 +25,13 @@
       color: $mediumGrey;
       font-weight: 300;
       font-size: 1.0em;
+      span {
+        margin-left: 5px;
+      }
     }
     
     .nav-link-active  {
       background-color: rgba(237, 244, 245, 0.947);
-      color: $blue;
     }
     
     &:hover {
